@@ -5,10 +5,7 @@
 <title>正则表达式</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <style type="text/css">
-/* Clear stylesheet for MarkdownPad (http://markdownpad.com) */
-/* Author: 明月心 - http://weibo.com/dili*/
-/* Version: 1.0 */
-/* Source: http://blog.163.com/igeo */
+
 
 /* RESET
 =============================================================================*/
@@ -713,7 +710,38 @@ String[] arr=str.split(regex);
         //n为正则中子表达式的编号,如n为空,则默认返回group(0);
         System.out.println(m.group(n));  
     }
-</code></pre>
+</code></pre><h2 id="-">贪婪模式</h2>
+<pre><code>贪婪匹配:正则表达式一般趋向于最大长度匹配，也就是所谓的贪婪匹配。
+非贪婪匹配：就是匹配到结果就好，就少的匹配字符。
+
+实例:
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class RegularTest {
+
+public static void main(String[] arg){
+    String text=&quot;(content:\&quot;rcpt to root\&quot;;pcre:\&quot;word\&quot;;)&quot;;
+    String rule1=&quot;content:\&quot;.+\&quot;&quot;;    //贪婪模式
+    String rule2=&quot;content:\&quot;.+?\&quot;&quot;;    //非贪婪模式
+
+    System.out.println(&quot;文本：&quot;+text);
+    System.out.println(&quot;贪婪模式：&quot;+rule1);
+    Pattern p1 =Pattern.compile(rule1);
+    Matcher m1 = p1.matcher(text);
+    while(m1.find()){
+        System.out.println(&quot;匹配结果：&quot;+m1.group(0));
+    }
+
+    System.out.println(&quot;非贪婪模式：&quot;+rule2);
+    Pattern p2 =Pattern.compile(rule2);
+    Matcher m2 = p2.matcher(text);
+    while(m2.find()){
+        System.out.println(&quot;匹配结果：&quot;+m2.group(0));
+    }
+}
+</code></pre><p>}</p>
+
 </body>
 </html>
 <!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
