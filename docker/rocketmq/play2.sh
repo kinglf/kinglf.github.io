@@ -29,7 +29,7 @@ ADDR=`hostname -i`:9876
 # Broker
 #  此处通过mqbroker -m >broker.config 得到
 # 然后通过-c调用
-nohup sh mqbroker -n ${ADDR}  > bk.log 2>&1 &
+nohup sh mqbroker -c broker.p > bk.log 2>&1 &
 
 
 echo "Start Name Server and Broker Successfully, ${ADDR}"
