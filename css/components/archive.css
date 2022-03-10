@@ -43,18 +43,18 @@ article.archive {
 }
 @media (prefers-color-scheme: dark) {
   .archive-post .archive-title {
-    color: #f6f2f5;
+    color: $archiveTitleDarkColor;
   }
   .archive-post .archive-title a {
-    color: #fff;
+    color: $archiveTitleLinkDarkColor;
   }
   .archive-post .archive-title a:hover {
-    color: #f6f2f5;
+    color: $archiveTitleDarkColor;
   }
   .archive-post time a {
-    color: #8e8e93;
+    color: $archiveTitleTimeDarkColor;
   }
   .archive-post time a:hover {
-    color: #f03838;
+    color: $archiveTitleTimeHoverDarkColor;
   }
 }
